@@ -4,37 +4,27 @@ import java.util.Scanner;
 
 public class Start {
 
+	public static void run() {
+		Scanner scan = new Scanner(System.in);
+		ReservationSystem rs = new ReservationSystem();
+		
+		while(true) {
+			System.out.println("[버스 예약 시스템]");
+			System.out.println("1. 버스\t 2.사람\t 3.예약\t");
+			System.out.print(">>");
+			int menu=scan.nextInt();
+			
+			switch(menu) {
+			case 1: break;
+			case 2: break;
+			case 3: break;
+			}
+			
+		}
+	}
 	public static void main(String[] args) {
 		
-		Scanner scan = new Scanner(System.in);
-		Bus bus = new Bus();
-				
-		while(true) {
-			System.out.print(">> ");
-			String str = scan.nextLine();
-			String[] sp=str.split(" ");//공백을 기반으로 자른다.
-			
-			if(sp[0].equals("reserve")) {//reserve 사람아이디 버스좌석
-				int id = Integer.parseInt(sp[1]);
-				int id = Integer.parseInt(sp[2]);
-				
-				stack.Push(val);
-			}
-			else if(sp[0].equals(" ")) {
-				try {
-				System.out.println("POP의 결과 값 : "+(int)stack.Pop());
-				}catch(Exception ex) {
-					System.out.println("비어있는 상태");
-				}
-			}
-			else if(sp[0].equals("exit")) {
-				break;
-			}
-			
-			bus.printSeat();
-			System.out.println();
-		}
-		
+		run();	
 		
 	}
 
