@@ -30,12 +30,11 @@ public class Start {
 			stack.Push(data%2);	//나머지값을 스택에 쌓아나가는 과정!
 			data = data/2;
 		}
-		stack.Push(data);
+		stack.Push(data);//마지막 남은 값 push
 		//==============================================
 
 		while(!stack.IsEmpty()) {
 			try {
-
 				result += stack.Pop();
 			} catch (Exception e) {
 				System.out.println(e.getMessage());
@@ -52,7 +51,7 @@ public class Start {
 	}
 
 	public static void exam2() {
-		System.out.println(dectobinary(245));
+		System.out.println("245의 2진수 = "+dectobinary(245));
 	}
 	//-----------------------------------------------
 
@@ -143,6 +142,30 @@ public class Start {
 		return result;
 	}
 
+	//후위 표기법에 대한 산술연산(정수형의 반환, 일의 자리 숫자 처리)
+	public static int postfix_cal(String str) {
+		MyStack stack = new MyStack();
+		char[] temp = str.toCharArray();
+		int result=0;
+		
+		for(char t :temp) {
+			if(t>= '0' && t <= '9') {
+				stack.Push(t-'0');
+			}else if(t=='+' || t=='-'|| t=='*' || t=='/') {
+				int number1=(int)stack.Pop();//먼저 나온게 연산자 오른쪽에 위치
+				int number2=(int)stack.Pop();
+				switch(t) {
+				case '+':result=number2+number1;break;
+				case '-':result=number2-number1;break;
+				case '*':result=number2*number1;break;
+				case '/':result=number2/number1;break;
+				}
+				stack.Push(result);
+			}
+		}
+		
+		return (int) stack.Pop();
+	}
 	
 	public static void exam3() {
 		postfix("(A + (B * C))");
@@ -151,11 +174,17 @@ public class Start {
 		System.out.println(postfix2("23 + (4 * 235)"));
 		System.out.println(postfix2_1("23 + (4 * 235)"));
 	}
+	
+	public static void exam4() {
+		System.out.println(postfix_cal("1 2 3 * 4 5 - - 6 + +"));		
+	}
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		exam1();
-		exam2();
-		exam3();
+		//exam1();
+		//exam2();
+		//exam3();
+		exam4();
 	}
 
 }
