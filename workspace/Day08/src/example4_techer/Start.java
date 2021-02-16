@@ -1,4 +1,4 @@
-package test;
+package example4_techer;
 
 import java.util.Scanner;
 

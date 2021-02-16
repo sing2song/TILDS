@@ -1,4 +1,4 @@
-package test;
+package example4_techer;
 
 //DNode �� MyDList������ ���Ǵ� ���� Ŭ����!
 public class MyDList {

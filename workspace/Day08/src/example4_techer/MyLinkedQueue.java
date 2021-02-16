@@ -1,4 +1,4 @@
-package test;
+package example4_techer;
 
 public class MyLinkedQueue {
 	private MyDList list = new MyDList();
