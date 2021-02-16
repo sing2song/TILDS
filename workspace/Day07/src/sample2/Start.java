@@ -1,4 +1,4 @@
-package game;
+package sample2;
 
 import java.util.Scanner;
 
@@ -52,6 +52,8 @@ public class Start {
 		Init();
 		
 		while(true) {
+			room.PrintAll();
+			
 			System.out.print(">> ");
 			String str = sc.nextLine();
 			String[] sp = str.split(" ");

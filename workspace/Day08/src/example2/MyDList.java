@@ -1,6 +1,4 @@
-package game;
-
-import list.Node;
+package example2;
 
 //DNode가 MyDList에서만 사용되는 전용 클래스!
 public class MyDList {
@@ -28,6 +26,11 @@ public class MyDList {
 		size=0;
 	}
 
+	public void Clear() {
+		head=tail=null;
+		size=0;
+	}
+	
 	public DNode getHead() {return head;}
 	//insert-----------------------------------------
 	public boolean push_front(Object data) {

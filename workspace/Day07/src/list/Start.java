@@ -83,7 +83,7 @@ public class Start {
 					System.out.println("검색 결과 :"+ (int)cur.data);
 				}else {
 					System.out.println("없다");
-					break;
+				
 				}
 				
 			}
@@ -116,6 +116,7 @@ public class Start {
 		System.out.println(" 프로그램을 종료합니다. ");
 		System.out.println("=================================");
 
+		scan.close();
 	}
 	
 	public static void main(String[] args) {
