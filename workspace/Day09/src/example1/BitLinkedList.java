@@ -197,7 +197,7 @@ public class BitLinkedList implements BitCollection {
 	//연결리스트 : 첫 노드부터 인덱스의 값을 활용하여 이동! --> node가 아니라 data를 반환!
 	@Override
 	public Object getData(int idx) {
-		if(idx<0 || idx>size)
+		if(idx<0 || idx>=size)
 			return null;
 		
 		DNode cur = head;
