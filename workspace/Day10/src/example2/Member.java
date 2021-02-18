@@ -25,7 +25,7 @@ public class Member {
 		return number;
 	}
 
-	void setNumber(int number) {
+	public void setNumber(int number) {
 		this.number = number;
 	}
 

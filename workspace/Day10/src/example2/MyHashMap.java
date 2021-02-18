@@ -45,31 +45,7 @@ public class MyHashMap {
 
 	//get & set 메서드
 	public Object getData(int idx) {return arr[idx];}
-	
-	public Object[] getArr() {
-		return arr;
-	}
 
-	public void setArr(Object[] arr) {
-		this.arr = arr;
-	}
-
-	public int getMax() {
-		return max;
-	}
-
-	public void setMax(int max) {
-		this.max = max;
-	}
-
-	public int getSize() {
-		return size;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
-	}
-	
 	
 	//기증 메서드
 	/*
@@ -126,26 +102,12 @@ public class MyHashMap {
 	*/
 	public int Select(Object key) {
 		int hvalue = HashFunction(key);
-		int i = hvalue;
-		while(true) {
-			try {
-				if((int)arr[i] != -1 )
-					break;
-				Member mem = (Member)arr[i];	
-				if( mem.getNumber() == (int)key)
-					return i;
-				}
-			catch(Exception ex) {				
-			}
-			i = (i+1)%bucket_max;
-		}
+		for(int i = hvalue; arr[i] != null; i = (i+1)%bucket_max) {
+			Member mem = (Member)arr[i];	
+			if( mem!= null && mem.getNumber() == (int)key)  //<========= 4)����
+				return i;
+		}			
 		return -1;
-//		for(int i = hvalue; (int)arr[i] != -1; i = (i+1)%bucket_max) {
-//			Member mem = (Member)arr[i];	
-//			if( mem.getNumber() == (int)key)
-//				return i;
-//		}			
-//		return -1;
 	}
 
 	
@@ -194,8 +156,6 @@ public class MyHashMap {
 				System.out.print("-1" + "\t");
 			else
 				System.out.print(((Member)arr[i]).getNumber()+ "\t");
-			//else
-			//	System.out.print(((Member)arr[i]).getNumber() + "\t");				
 		}
 		System.out.println("\n--------------------------------------------------------------------------------------");
 	}
