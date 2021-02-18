@@ -188,6 +188,8 @@ public class ParseTree {
 			System.out.println();
 		}
 		
-		
+		public void PostOrder_NonRe() {
+			
+		}
 		
 }
