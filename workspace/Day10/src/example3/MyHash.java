@@ -14,10 +14,9 @@ public class MyHash {
 		this.bucket_max = (int)(max*1.2);
 		
 		//배열 생성 및 초기화
-		arr = new Object[bucket_max];
-		for(int i=0;i<arr.length;i++) {
-			arr[i]=-1;
-		}
+		arr = new MyDList[max];				
+		for(int i=0; i< arr.length; i++)
+			arr[i] = new MyDList();		
 	}
 
 	//get & set 메서드
@@ -67,9 +66,11 @@ public class MyHash {
 	
 	private boolean IsUniq(Object key) {
 		//선형검색
-		for(int i=0;i<arr.length;i++) {
-			if((int)arr[i]==(int)key)
-				return false;
+		for(int i=0; i<arr.length; i++) {
+			MyDList list = arr[i];
+			MyDList.DNode node = list.Select(key);
+			if(node != null)
+				return false;				
 		}
 		return true;
 	}
